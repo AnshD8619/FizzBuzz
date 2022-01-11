@@ -38,6 +38,17 @@ footer .social>a:hover{
 }
 .checklist >li i{
     color: var(--primary-color);
+
+}
+.Fizz{
+    color: darkcyan;
+}
+.Buzz{
+    color: navy;
+}
+.FizzBuzz{
+    color: red;
+    font-weight: bold;
 }
 code[class*="language-"],
     pre[class*="language-"] {

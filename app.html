@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>Application: A Coding Project By Ansh Desai</title>
+    <title>FizzBuzz: A Coding Project By Ansh Desai</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,7 +18,7 @@
     <!--Navigation Section-->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/Mark.png" class="d-inline-block align-text-top" width="30" height="24">Application</a>
+            <a class="navbar-brand" href="#"><img src="/img/Mark.png" class="d-inline-block align-text-top" width="30" height="24">FizzBuzz</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,8 +46,43 @@
     </nav>
     <!--Main Section-->
     <main class="flex-shrink-0">
-        <div class="container">
-
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col col-lg-4 border-end border-2">
+                    <h1>FizzBuzz: A Coding Project</h1>
+                    <h4 class="lead text-">When it counts you FizzBuzz. This javascript coding exercise uses loops 
+                        to print out numbers from 1 to 100. For multiples of 3 it displays Fizz and for multiples
+                         of 5 it displays Buzz. For multiples of both, display FizzBuzz</h4>
+                    <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                    <p>Enter Fizz and Buzz Values and FizzBuzz</p>
+                </div>
+                <div class="col col-lg-8">
+                    <div>
+                        <h5>Enter Values</h5>
+                        <form class="row gy-2 gx-3">
+                            <div class="col">
+                                <input id="fizzValue" type="number" class="form-control" placeholder="Fizz Value" 
+                                    value=3 aria-label="Fizz Value">
+                            </div>
+                            <div class="col">
+                                <input id="buzzValue" type="number" class="form-control" placeholder="Buzz Value" 
+                                    value=5 aria-label="Buzz Value">
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="button" id="btnSubmit" class="btn btn-dark btn-lg">FizzBuzz</button>
+                            </div>
+                        </form>
+                        <h2 class="mt-5 border-bottom border-2">Results</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm">
+                                <tbody id="results">
+                                    <!--Table gets printed here with js-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
      <!--Footer Section-->
@@ -71,10 +106,22 @@
             </div>
         </div>
     </footer>
+    <template id="fbTemplate">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </template>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
-    <script src="/js/site.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click", getFizzbuzz);
+    </script>
 </body>
 </html>
