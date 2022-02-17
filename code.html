@@ -36,10 +36,10 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repository</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/AnshD8619/FizzBuzz">Git Repository</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">About Me</a>
+                        <a class="nav-link" target="_blank" href="PortfolioLink">About Me</a>
                     </li>
                 </ul>
             </div>
@@ -48,19 +48,91 @@
     <!--Main Section-->
     <main class="flex-shrink-0">
         <div class="container py-5 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">THE APPLICATION CODE</h2>
+            <h2 class="border-1 border-bottom border-dark">FizzBuzz Code</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            alert("ENTER PROGRAM CODE HERE");
+                            
+function getFizzbuzz(){
+    let fizzValue = document.getElementById("fizzValue").value;
+    let buzzValue = document.getElementById("buzzValue").value;
+    let numbers = [];
+    fizzValue = parseInt(fizzValue);
+    buzzValue = parseInt(buzzValue);
+    if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
+        //calls generateNumbers function if true
+        numbers = generateFizzBuzz(fizzValue, buzzValue);
+        //Calls displayNumbers()
+        displayFizzBuzz(numbers);    
+    }
+    else{
+        alert("You must enter integers");
+    }
+}
+
+function generateFizzBuzz(fizz, buzz){
+    numbers = [];
+    for(let index = 1; index<=100;index++){
+        if(index % fizz == 0 && index % buzz == 0){
+            numbers.push("FizzBuzz");
+        }
+        else if(index % fizz == 0){
+            numbers.push("Fizz");
+        }
+        else if(index % buzz == 0){
+            numbers.push("Buzz");
+        }
+        else{
+            numbers.push(index);
+        }
+    }
+    return numbers;
+}
+
+function displayFizzBuzz(fbArray){
+    let tableBody = document.getElementById("results");
+    let templateRow = document.getElementById("fbTemplate");
+    tableBody.innerHTML = "";
+    
+    for (let index = 0; index < fbArray.length; index+=5) {
+        let tableRow = document.importNode(templateRow.content, true);
+        let rowCols = tableRow.querySelectorAll("td");
+        rowCols[0].classList.add(fbArray[index])
+        rowCols[0].textContent = fbArray[index];
+        rowCols[1].classList.add(fbArray[index+1])
+        rowCols[1].textContent = fbArray[index+1];
+        rowCols[2].classList.add(fbArray[index+2])
+        rowCols[2].textContent = fbArray[index+2];
+        rowCols[3].classList.add(fbArray[index+3])
+        rowCols[3].textContent = fbArray[index+3];
+        rowCols[4].classList.add(fbArray[index+4])
+        rowCols[4].textContent = fbArray[index+4];
+        tableBody.appendChild(tableRow);
+    }
+}
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>HOW IS THE CODE STRUCTURED</p>
-                    <h5>FUNCTION NAME</h5>
-                    <p>FUNCTION DESCRIPTION</p>
+                    <h5>Code Structure</h5>
+                    
+                    <h5>getFizzbuzz()</h5>
+                    <p>This function gets the fizz and buzz values inputted by the user. 
+                    After parsing and verifying that the inputs are integers, it calls the generateFizzBuzz() 
+                    and displayFizzBuzz() functions. Else, it displays an alert telling the user to enter integers.</p>
+
+                    <h5>generateFizzBuzz()</h5>
+                    <p>This function creates an empty list numbers. 
+                    A for loop loops through from 1 to 100 and checks the fizzbuzz values. 
+                    If the number is divisible by boht the Fizz and Buzz, it will add FizzBuzz instead of the number. 
+                    If it is divisible by the Fizz value, it pushes Fizz to the list instead of the number. 
+                    If the number is divisible by the Buzz value, Buzz is pushed to the list rather than the number itself. 
+                    Else, it adds the number to the list. After the for loop, it returns the list to getFizzbuzz().</p>
+
+                    <h5>displayFizzBuzz()</h5>
+                    <p>This function goes through the array and adds each value to a different column up to 5. 
+                    It then adds that table row to the html and displays a table constisting of 5 columns.</p>
                 </div>               
             </div>
         </div>
